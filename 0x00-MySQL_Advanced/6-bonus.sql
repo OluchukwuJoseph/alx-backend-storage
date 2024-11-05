@@ -1,6 +1,7 @@
-DELIMITER $$
 -- Creates a procedure AddBonus that adds a new correction for a student.
-CREATE PROCEDURE IF NOT EXISTS AddBonus(IN user_id INT, IN project_name VARCHAR(255), IN score INT)
+DELIMITER $$
+
+CREATE PROCEDURE AddBonus(IN user_id INT, IN project_name VARCHAR(255), IN score INT)
 BEGIN
   DECLARE project_id INT;
   IF project_name NOT IN (SELECT name FROM projects) THEN
