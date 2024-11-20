@@ -9,11 +9,10 @@ if __name__ == '__main__':
 
     print(f"{collection.count_documents({})} logs")
     print("Methods:")
-    print(f"\tmethod GET: {collection.count_documents({'method': 'GET'})}")
-    print(f"\tmethod POST: {collection.count_documents({'method': 'POST'})}")
-    print(f"\tmethod PUT: {collection.count_documents({'method': 'PUT'})}")
-    print(f"\tmethod PATCH: {collection.count_documents({'method': 'PATCH'})}")
-    print(f"\tmethod DELETE:"
-          f"{collection.count_documents({'method': 'DELETE'})}")
+    methods = ["GET", "POST", "PUT", "PATCH", "DELETE"]
+    for method in methods:
+        method_count = collection.count_documents({'method': method})
+        print(f'\tmethod {method}: {method_count}')
+
     print(f"{collection.count_documents({'method': 'GET', 'path': '/status'})}"
           " status check")
